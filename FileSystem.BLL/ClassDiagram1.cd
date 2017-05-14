@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FileSystem.BLL.BaseLogic&lt;T&gt;">
+    <Position X="2" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAQAAAAAAAAAAAAQAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Base\BaseLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileSystem.BLL.DepartmentLogic" Collapsed="true">
+    <Position X="1.25" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Logic\DepartmentLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileSystem.BLL.FunctionLogic" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logic\FunctionLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileSystem.BLL.UserLogic" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Logic\UserLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
