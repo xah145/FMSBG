@@ -1,7 +1,7 @@
 ﻿/**************************************************************** 
  * 作    者：黄鼎 
  * CLR 版本：4.0.30319.42000 
- * 创建时间：2017-05-10 13:36:03 
+ * 创建时间：2017-05-16 12:40:41 
  * 当前版本：1.0.0.0
  *  
  * 描述说明： 
@@ -15,25 +15,30 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace FileSystem.Entity
+namespace FileSystem.DAL
 {
-    public class SimpleUser : BaseEntity
+    /// <summary>
+    /// 关联表名和字段名
+    /// </summary>
+    public class Relationship
     {
+        private Relationship() { }
         /// <summary>
-        /// 用户登录名
+        /// 对指定表名进行关联删除
         /// </summary>
-        public virtual string UserName { get; set; }
-
+        /// <param name="tableName">要删除关联表名称</param>
+        public Relationship(string tableName)
+        {
+            TableName = tableName;
+        }
         /// <summary>
-        /// 用户真实姓名
+        /// 关系表的名称
         /// </summary>
-        public virtual string UserRealName { get; set; }
-
+        public string TableName { get; set; }
         /// <summary>
-        /// 用户登录密码
+        /// 关联表中外键的字段名
         /// </summary>
-        public virtual string UserPassword { get; set; }
+        public string FieldName { get; set; }
     }
 }

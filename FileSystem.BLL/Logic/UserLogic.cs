@@ -1,5 +1,5 @@
 ﻿/**************************************************************** 
- * 作    者：黄鼎 
+ * 作    者：肖安辉
  * CLR 版本：4.0.30319.42000 
  * 创建时间：2017-05-12 1:06:12 
  * 当前版本：1.0.0.0
@@ -35,6 +35,7 @@ namespace FileSystem.BLL
         {
             return Service.GetUsers();
         }
+    
 
         /// <summary>
         /// 用户登录方法
@@ -77,6 +78,20 @@ namespace FileSystem.BLL
            // }
             return true;
         }
+        public bool AddUser(User user) {
+            return Service.InsertUser(user);
+        }
+        public bool EditUser(User user)
+        {
+
+            return Service.UpdateUser(user);
+        }
+        public bool DeleteUser(int userid)
+        {
+          
+            return Service.DeleteUser(userid);
+        }
+
 
     }
 }

@@ -223,7 +223,7 @@
             this.tssLink.IsLink = true;
             this.tssLink.Name = "tssLink";
             this.tssLink.RightToLeftAutoMirrorImage = true;
-            this.tssLink.Size = new System.Drawing.Size(739, 20);
+            this.tssLink.Size = new System.Drawing.Size(778, 20);
             this.tssLink.Spring = true;
             this.tssLink.Text = "版权所有:城建智能建筑学院";
             this.tssLink.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

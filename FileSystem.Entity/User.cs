@@ -24,21 +24,20 @@ namespace FileSystem.Entity
 		/// <summary>
 		/// 
 		/// </summary>
-		public int UserID { get; set; }		
-		/// <summary>
-		/// 
-		/// </summary>
-		public bool? UserSex { get; set; }
-		/// <summary>
-		/// 
-		/// </summary>
-		public string UserAddress { get; set; }
+		public int UserID { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool? UserSex { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string UserAddress { get; set; }
 
-        public string UserTel { get; set; }
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? UserCreateTime { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        //public DateTime? UserCreateTime { get; set; }
         public bool UserEnable { get; set; }
         public string UserMobile { get; set; }
     }

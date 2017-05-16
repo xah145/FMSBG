@@ -135,14 +135,14 @@ namespace FMSBackground
             string name = txtFunctionName.Text;
             if (string.IsNullOrWhiteSpace(name))//没有输入功能名称
             {
-                lblError.Text = "请输入功能名称";
+                lblError1.Text = "请输入功能名称";
                 txtFunctionName.Focus();//让控件获得焦点
                 return false;
             }
             string control = txtFunctionControl.Text;
             if (string.IsNullOrWhiteSpace(control))
             {
-                lblError.Text = "请输入控件ID";
+                lblError2.Text = "请输入控件ID";
                 txtFunctionControl.Focus();//让控件获得焦点
                 return false;
             }
@@ -193,6 +193,6 @@ namespace FMSBackground
             pnlAction.Enabled = true;//启用动作面板
         }
 
-
+       
     }
 }
