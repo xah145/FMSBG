@@ -57,9 +57,9 @@ namespace FileSystem.DAL
             return DeleteByKey(userID.ToString());
         }
 
-        public List<Department> GetDepartmentByUID(int uid)
+        public List<DepartmentPosition> GetDepartmentByUID(int uid)
         {
-            throw new NotImplementedException();
+            return Find<DepartmentPosition>(new BaseQueryInfo("View_User_Department_Position",null), "UserID=@UserID", new SqlParameter("@UserID", uid));
         }
 
         public IList<Role> GetRolesByID(int userID)
@@ -89,6 +89,5 @@ namespace FileSystem.DAL
         {
             return Update(user);
         }
-       
     }
 }

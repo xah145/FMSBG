@@ -169,7 +169,7 @@ namespace FMSBackground
             tvFunction.ExpandAll();//展开所有 节点
         }
 
-        private void btnAdd_Click(object sender, AuthEventArgs e)
+        private void authBtnAdd_Click(object sender, AuthEventArgs e)
         {
             if (!e.OK) return;
             Debug.WriteLine("btnAdd_Click");
@@ -181,16 +181,29 @@ namespace FMSBackground
             pnlAction.Enabled = false;//禁用动作面板
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+       
+
+        private void authBtnEdit_Click(object sender, AuthEventArgs e)
         {
             gbDetail.Enabled = true;//编辑时解锁界面/启用界面
             pnlAction.Enabled = false;
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void authBtnDelete_Click(object sender, AuthEventArgs e)
         {
-            gbDetail.Enabled = false;//取消时详情面板要禁用
-            pnlAction.Enabled = true;//启用动作面板
+            if (!e.OK)
+            {
+
+            }
+            if (_selectedNode == null) return;
+            Function f = _selectedNode.Tag as Function;
+            if (f == null) return;
+            //从数据库删除这个FuncitonID=_selectedFunID的记录
+            bool ok = _funLogic.DeleteFuncitonByID(f.FunctionID);
+            if (ok)
+            {
+                tvFunction.Nodes.Remove(_selectedNode);
+            }
         }
 
        

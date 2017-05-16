@@ -41,9 +41,9 @@ namespace FMSBackground
         private void FrmUser_Load(object sender, EventArgs e)
         {
             InitUserTree();//初始化用户树
-            InitDepTree(); //初始化部下拉框
-            InitPosTree(); //初始化岗位下拉框
-            InitDepartmentList();//初始化部门列表 
+            ///InitDepTree(); //初始化部下拉框
+            ///InitPosTree(); //初始化岗位下拉框
+            //InitDepartmentList();//初始化部门列表 
         }
 
 
@@ -51,16 +51,6 @@ namespace FMSBackground
         {
             lstDepPos.Items.Clear();
             lstDepPos.Items.Add("人事部-经理");
-        }
-
-        private void InitPosTree()
-        {
-            //throw new NotImplementedException();
-        }
-
-        private void InitDepTree()
-        {
-            //throw new NotImplementedException();
         }
 
         /// <summary>
@@ -78,29 +68,21 @@ namespace FMSBackground
             }
 
             tvUser.ExpandAll();
+            if (tvUser.Nodes.Count > 0)
+            {
+                _selectedNode = tvUser.Nodes[0];
+                ShowSelectedUserDepartment(_selectedNode);
+            }
         }
-        /// <summary>
-        /// 添加新用户
-        /// </summary>
-        /// <param name="node"></param>
-        /// <param name="id"></param>
-        //private void Addnewuser(TreeNode node, int id)
-        //{
-        //    List<User> list = _userLogic.GetUsers();
-        //    foreach (var u in list)
-        //    {
-        //        TreeNode newuser = new TreeNode(u.UserName);
-        //        newuser.Name = u.UserID.ToString();
-        //        newuser.Tag = u;
-        //        newuser.Nodes.Add(newuser);
-        //        Addnewuser(newuser, u.UserID);
-        //    }
-
-        //}
 
         private void tvUser_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            User u = e.Node.Tag as User;
+            ShowSelectedUserDepartment(e.Node);
+        }
+
+        private void ShowSelectedUserDepartment(TreeNode node)
+        {
+            User u = node.Tag as User;
             //ResetUserDetail();//清除上一个用户的信息
             if (u == null) return;
             txtUserName.Text = u.UserName;
@@ -109,8 +91,15 @@ namespace FMSBackground
             txtMobile.Text = u.UserMobile;
             txtAddress.Text = u.UserAddress;
             chkUserEnable.Checked = u.UserEnable;
-            _selectedNode = e.Node;
-
+            rdoMale.Checked = (bool)(u.UserSex);
+            _selectedNode = node;
+            //右边显示
+            lstDepPos.Items.Clear();
+            List<DepartmentPosition> list = _userLogic.GetDepartmentUser(u.UserID);
+            foreach (var dp in list)
+            {
+                lstDepPos.Items.Add(string.Format("{0} --- {1}", dp.DepartmentName, dp.PositionName));
+            }
         }
 
         /// <summary>
@@ -160,7 +149,7 @@ namespace FMSBackground
                 UserAddress = txtAddress.Text,
                 UserMobile = txtMobile.Text,
                 UserSex = rdoMale.Checked,
-                UserEnable = !chkUserEnable.Checked,
+                UserEnable = chkUserEnable.Checked,
             };
             bool ok = _userLogic.AddUser(user);
             if (ok)
@@ -207,14 +196,14 @@ namespace FMSBackground
             if (_selectedNode == null) return;
             User u = _selectedNode.Tag as User;
             if (u == null) return;
-          
+
             u.UserName = txtUserName.Text;
             u.UserRealName = txtRealName.Text;
             u.UserPassword = txtPwd.Text;
             u.UserAddress = txtAddress.Text;
             u.UserMobile = txtMobile.Text;
             u.UserSex = rdoMale.Checked;
-
+            u.UserEnable = chkUserEnable.Checked;
             bool ok = _userLogic.EditUser(u);
             if (ok)
             {
@@ -235,12 +224,12 @@ namespace FMSBackground
         /// <param name="e"></param>
         private void authBtnAdd_Click(object sender, Control.AuthEventArgs e)
         {
-          
-                _badd = true;
-                ResetUserDetail();
-                gbDeatil.Enabled = true;
-                tvUser.Enabled = true;
-                pnlAction.Enabled = false;
+
+            _badd = true;
+            ResetUserDetail();
+            gbDeatil.Enabled = true;
+            tvUser.Enabled = true;
+            pnlAction.Enabled = false;
         }
         /// <summary>
         /// 删除
@@ -278,21 +267,14 @@ namespace FMSBackground
         {
             gbDeatil.Enabled = true;
             pnlAction.Enabled = false;
-           
+
         }
         /// <summary>
         /// 取消操作
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            gbDeatil.Enabled = false;
-            pnlAction.Enabled = true;
-        }
 
-      
 
-        
     }
 }

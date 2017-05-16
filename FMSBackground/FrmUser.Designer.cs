@@ -129,7 +129,7 @@
             // 
             this.lblError4.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblError4.ForeColor = System.Drawing.Color.Red;
-            this.lblError4.Location = new System.Drawing.Point(145, 324);
+            this.lblError4.Location = new System.Drawing.Point(145, 322);
             this.lblError4.Name = "lblError4";
             this.lblError4.Size = new System.Drawing.Size(225, 23);
             this.lblError4.TabIndex = 19;
@@ -193,7 +193,7 @@
             this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+       
             // 
             // txtUserName
             // 
@@ -248,7 +248,7 @@
             this.txtMobile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMobile.Location = new System.Drawing.Point(141, 293);
+            this.txtMobile.Location = new System.Drawing.Point(142, 293);
             this.txtMobile.Margin = new System.Windows.Forms.Padding(4);
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(526, 25);
@@ -277,7 +277,7 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(23, 293);
+            this.label8.Location = new System.Drawing.Point(24, 293);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(82, 25);

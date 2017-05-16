@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDelete = new FMSBackground.Control.AuthButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tvFunction = new System.Windows.Forms.TreeView();
             this.gbDetail = new System.Windows.Forms.GroupBox();
+            this.authBtnEdit = new FMSBackground.Control.AuthButton();
+            this.authBtnDelete = new FMSBackground.Control.AuthButton();
+            this.authBtnAdd = new FMSBackground.Control.AuthButton();
+            this.lblError2 = new System.Windows.Forms.Label();
             this.lblError1 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -41,29 +44,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtFunctionName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAdd = new FMSBackground.Control.AuthButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.btnEdit = new FMSBackground.Control.AuthButton();
             this.pnlAction = new System.Windows.Forms.Panel();
-            this.lblError2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbDetail.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.pnlAction.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(221, 5);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(99, 36);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Tag = "Function/Delete";
-            this.btnDelete.Text = "删除";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new FMSBackground.Control.AuthEventHandler(this.btnDelete_Click);
             // 
             // groupBox1
             // 
@@ -88,6 +76,7 @@
             this.tvFunction.Name = "tvFunction";
             this.tvFunction.Size = new System.Drawing.Size(335, 620);
             this.tvFunction.TabIndex = 0;
+    
             this.tvFunction.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvFunction_NodeMouseClick);
             // 
             // gbDetail
@@ -115,6 +104,48 @@
             this.gbDetail.TabStop = false;
             this.gbDetail.Text = "功能详细信息";
             // 
+            // authBtnEdit
+            // 
+            this.authBtnEdit.Location = new System.Drawing.Point(189, 3);
+            this.authBtnEdit.Name = "authBtnEdit";
+            this.authBtnEdit.Size = new System.Drawing.Size(75, 39);
+            this.authBtnEdit.TabIndex = 19;
+            this.authBtnEdit.Tag = "User/Edit";
+            this.authBtnEdit.Text = "编辑";
+            this.authBtnEdit.UseVisualStyleBackColor = true;
+            this.authBtnEdit.Click += new FMSBackground.Control.AuthEventHandler(this.authBtnEdit_Click);
+            // 
+            // authBtnDelete
+            // 
+            this.authBtnDelete.Location = new System.Drawing.Point(93, 3);
+            this.authBtnDelete.Name = "authBtnDelete";
+            this.authBtnDelete.Size = new System.Drawing.Size(75, 39);
+            this.authBtnDelete.TabIndex = 18;
+            this.authBtnDelete.Tag = "User/Delete";
+            this.authBtnDelete.Text = "删除";
+            this.authBtnDelete.UseVisualStyleBackColor = true;
+            this.authBtnDelete.Click += new FMSBackground.Control.AuthEventHandler(this.authBtnDelete_Click);
+            // 
+            // authBtnAdd
+            // 
+            this.authBtnAdd.Location = new System.Drawing.Point(0, 3);
+            this.authBtnAdd.Name = "authBtnAdd";
+            this.authBtnAdd.Size = new System.Drawing.Size(75, 39);
+            this.authBtnAdd.TabIndex = 17;
+            this.authBtnAdd.Tag = "User/Add";
+            this.authBtnAdd.Text = "添加";
+            this.authBtnAdd.UseVisualStyleBackColor = true;
+            this.authBtnAdd.Click += new FMSBackground.Control.AuthEventHandler(this.authBtnAdd_Click);
+            // 
+            // lblError2
+            // 
+            this.lblError2.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblError2.ForeColor = System.Drawing.Color.Red;
+            this.lblError2.Location = new System.Drawing.Point(147, 151);
+            this.lblError2.Name = "lblError2";
+            this.lblError2.Size = new System.Drawing.Size(251, 23);
+            this.lblError2.TabIndex = 14;
+            // 
             // lblError1
             // 
             this.lblError1.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -134,7 +165,6 @@
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = " 放弃";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -213,18 +243,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "功能名称(*):";
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(9, 5);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(99, 36);
-            this.btnAdd.TabIndex = 9;
-            this.btnAdd.Tag = "Function/Add";
-            this.btnAdd.Text = "添加";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new FMSBackground.Control.AuthEventHandler(this.btnAdd_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -250,37 +268,16 @@
             this.listBox1.Size = new System.Drawing.Size(269, 620);
             this.listBox1.TabIndex = 0;
             // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(115, 5);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(99, 36);
-            this.btnEdit.TabIndex = 4;
-            this.btnEdit.Tag = "User/Edit";
-            this.btnEdit.Text = " 编辑";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new FMSBackground.Control.AuthEventHandler(this.btnEdit_Click);
-            // 
             // pnlAction
             // 
-            this.pnlAction.Controls.Add(this.btnAdd);
-            this.pnlAction.Controls.Add(this.btnDelete);
-            this.pnlAction.Controls.Add(this.btnEdit);
+            this.pnlAction.Controls.Add(this.authBtnEdit);
+            this.pnlAction.Controls.Add(this.authBtnAdd);
+            this.pnlAction.Controls.Add(this.authBtnDelete);
             this.pnlAction.Location = new System.Drawing.Point(8, 0);
             this.pnlAction.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAction.Name = "pnlAction";
             this.pnlAction.Size = new System.Drawing.Size(324, 45);
             this.pnlAction.TabIndex = 8;
-            // 
-            // lblError2
-            // 
-            this.lblError2.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblError2.ForeColor = System.Drawing.Color.Red;
-            this.lblError2.Location = new System.Drawing.Point(147, 151);
-            this.lblError2.Name = "lblError2";
-            this.lblError2.Size = new System.Drawing.Size(251, 23);
-            this.lblError2.TabIndex = 14;
             // 
             // FrmFunction
             // 
@@ -320,10 +317,10 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel pnlAction;
-        private Control.AuthButton btnDelete;
-        private Control.AuthButton btnEdit;
-        private Control.AuthButton btnAdd;
         private System.Windows.Forms.Label lblError1;
         private System.Windows.Forms.Label lblError2;
+        private Control.AuthButton authBtnAdd;
+        private Control.AuthButton authBtnDelete;
+        private Control.AuthButton authBtnEdit;
     }
 }

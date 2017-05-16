@@ -40,7 +40,7 @@ namespace FileSystem.DAL
         /// <returns>返回用户所在角色组集合</returns>
         IList<Role> GetRolesByID(int userID);
 
-        List<Department> GetDepartmentByUID(int uid);
+        List<DepartmentPosition> GetDepartmentByUID(int uid);
         /// <summary>
         /// 查询所有用户
         /// </summary>

@@ -91,7 +91,10 @@ namespace FileSystem.BLL
           
             return Service.DeleteUser(userid);
         }
+        public List<DepartmentPosition> GetDepartmentUser(int uid) {
 
+            return Service.GetDepartmentByUID(uid);
+        }
 
     }
 }
