@@ -169,7 +169,7 @@ namespace FMSBackground
             tvFunction.ExpandAll();//展开所有 节点
         }
 
-        private void authBtnAdd_Click(object sender, AuthEventArgs e)
+        private void btnAdd_Click(object sender, AuthEventArgs e)
         {
             if (!e.OK) return;
             Debug.WriteLine("btnAdd_Click");
@@ -203,9 +203,19 @@ namespace FMSBackground
             if (ok)
             {
                 tvFunction.Nodes.Remove(_selectedNode);
+                MessageBox.Show("删除成功");
+            }
+            else
+            {
+                MessageBox.Show("删除失败");
+
             }
         }
 
-       
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            gbDetail.Enabled = false;
+            pnlAction.Enabled = true;
+        }
     }
 }

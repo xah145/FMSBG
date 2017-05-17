@@ -59,10 +59,17 @@
             this.authBtnEdit = new FMSBackground.Control.AuthButton();
             this.authBtnAdd = new FMSBackground.Control.AuthButton();
             this.authBtnDelete = new FMSBackground.Control.AuthButton();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.删除DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.刷新列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.gbDeatil.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.pnlAction.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -81,14 +88,17 @@
             // 
             // tvUser
             // 
+            this.tvUser.ContextMenuStrip = this.contextMenuStrip1;
             this.tvUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvUser.HideSelection = false;
             this.tvUser.Location = new System.Drawing.Point(4, 22);
             this.tvUser.Margin = new System.Windows.Forms.Padding(4);
             this.tvUser.Name = "tvUser";
+            this.tvUser.ShowNodeToolTips = true;
             this.tvUser.Size = new System.Drawing.Size(317, 665);
             this.tvUser.TabIndex = 0;
             this.tvUser.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvUser_NodeMouseClick);
+            this.tvUser.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tvUser_MouseClick);
             // 
             // gbDeatil
             // 
@@ -133,6 +143,7 @@
             this.lblError4.Name = "lblError4";
             this.lblError4.Size = new System.Drawing.Size(225, 23);
             this.lblError4.TabIndex = 19;
+            this.lblError4.Visible = false;
             // 
             // lblError3
             // 
@@ -142,6 +153,7 @@
             this.lblError3.Name = "lblError3";
             this.lblError3.Size = new System.Drawing.Size(225, 23);
             this.lblError3.TabIndex = 18;
+            this.lblError3.Visible = false;
             // 
             // lblError2
             // 
@@ -151,6 +163,7 @@
             this.lblError2.Name = "lblError2";
             this.lblError2.Size = new System.Drawing.Size(225, 23);
             this.lblError2.TabIndex = 17;
+            this.lblError2.Visible = false;
             // 
             // lblError1
             // 
@@ -160,6 +173,7 @@
             this.lblError1.Name = "lblError1";
             this.lblError1.Size = new System.Drawing.Size(225, 23);
             this.lblError1.TabIndex = 15;
+            this.lblError1.Visible = false;
             // 
             // rdoMale
             // 
@@ -193,7 +207,7 @@
             this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
-       
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtUserName
             // 
@@ -277,10 +291,10 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(24, 293);
+            this.label8.Location = new System.Drawing.Point(8, 293);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 25);
+            this.label8.Size = new System.Drawing.Size(126, 25);
             this.label8.TabIndex = 0;
             this.label8.Text = "移动电话：";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -408,6 +422,48 @@
             this.authBtnDelete.UseVisualStyleBackColor = true;
             this.authBtnDelete.Click += new FMSBackground.Control.AuthEventHandler(this.authBtnDelete_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.删除DToolStripMenuItem,
+            this.添加AToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.编辑ToolStripMenuItem,
+            this.刷新列表ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(166, 114);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // 删除DToolStripMenuItem
+            // 
+            this.删除DToolStripMenuItem.Name = "删除DToolStripMenuItem";
+            this.删除DToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.删除DToolStripMenuItem.Text = "删除(D)";
+            // 
+            // 添加AToolStripMenuItem
+            // 
+            this.添加AToolStripMenuItem.Name = "添加AToolStripMenuItem";
+            this.添加AToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.添加AToolStripMenuItem.Text = "添加(A)";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(162, 6);
+            // 
+            // 编辑ToolStripMenuItem
+            // 
+            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.编辑ToolStripMenuItem.Text = "编辑(E)";
+            // 
+            // 刷新列表ToolStripMenuItem
+            // 
+            this.刷新列表ToolStripMenuItem.Name = "刷新列表ToolStripMenuItem";
+            this.刷新列表ToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.刷新列表ToolStripMenuItem.Text = "刷新列表(U)";
+            // 
             // FrmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -426,6 +482,7 @@
             this.gbDeatil.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.pnlAction.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -461,5 +518,11 @@
         private System.Windows.Forms.Label lblError3;
         private System.Windows.Forms.Label lblError2;
         private System.Windows.Forms.Label lblError1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 删除DToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 添加AToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 编辑ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 刷新列表ToolStripMenuItem;
     }
 }

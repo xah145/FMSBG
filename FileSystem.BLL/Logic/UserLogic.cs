@@ -69,13 +69,13 @@ namespace FileSystem.BLL
             }
             //用戶权限判断，用户工厂方法创建一个AuthLogin的实例
             //然后调用实例的Auth方法进行权限认证
-            
-           //bool ok = Factory.Create<AuthLogic>().Auth(user.UserID, GObj.SYSTEM_FUNCTION);
-           // if (!ok)
-           // {
-           //     msg = "你没有登录后台的权限";
-           //     return false;
-           // }
+
+            bool ok = Factory.Create<AuthLogic>().Auth(user.UserID, GObj.SYSTEM_FUNCTION);
+            if (!ok)
+            {
+                msg = "你没有登录后台的权限";
+                return false;
+            }
             return true;
         }
         public bool AddUser(User user) {

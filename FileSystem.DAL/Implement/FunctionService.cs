@@ -23,12 +23,12 @@ namespace FileSystem.DAL
 {
     public class FunctionService : BaseService<Function>, IFunctionService
     {
-        public override IQueryInfo QueryInfo => new BaseQueryInfo("ACL_Function",null);
+        public override IQueryInfo QueryInfo => new BaseQueryInfo("ACL_Function","FunctionID",null);
 
         public bool DeleteFunctionByID(int id)
         {
             return DeleteByKey(id.ToString());
-        }
+         }
 
         public List<Function> GetFunctions(int pid)
         {

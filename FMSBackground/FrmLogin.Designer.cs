@@ -111,7 +111,7 @@
             // linkHelp
             // 
             this.linkHelp.BackColor = System.Drawing.Color.Transparent;
-            this.linkHelp.Location = new System.Drawing.Point(453, 38);
+            this.linkHelp.Location = new System.Drawing.Point(469, 42);
             this.linkHelp.Name = "linkHelp";
             this.linkHelp.Size = new System.Drawing.Size(74, 30);
             this.linkHelp.TabIndex = 11;
@@ -138,7 +138,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(539, 339);
+            this.ClientSize = new System.Drawing.Size(552, 342);
             this.Controls.Add(this.lblCalendar);
             this.Controls.Add(this.linkHelp);
             this.Controls.Add(this.label3);

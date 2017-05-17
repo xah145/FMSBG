@@ -98,7 +98,7 @@ namespace FMSBackground
             List<DepartmentPosition> list = _userLogic.GetDepartmentUser(u.UserID);
             foreach (var dp in list)
             {
-                lstDepPos.Items.Add(string.Format("{0} --- {1}", dp.DepartmentName, dp.PositionName));
+                lstDepPos.Items.Add(string.Format("{0} -> {1}", dp.DepartmentName, dp.PositionName));
             }
         }
 
@@ -174,18 +174,34 @@ namespace FMSBackground
             if (string.IsNullOrWhiteSpace(txtUserName.Text))
             {
                 lblError1.Text = "用户名不能为空";
+                txtUserName.Focus();
+                lblError1.Visible = true;
                 return false;
             }
+            lblError1.Visible = false;
             if (string.IsNullOrWhiteSpace(txtPwd.Text))
             {
                 lblError2.Text = "密码不能为空";
+                txtPwd.Focus();
+                lblError2.Visible = true;
                 return false;
             }
+            lblError2.Visible = false;
             if (string.IsNullOrWhiteSpace(txtRealName.Text))
             {
                 lblError3.Text = "请输入真实姓名";
+                lblError3.Focus();
+                lblError3.Visible = true;
                 return false;
             }
+            lblError3.Visible = false;
+            if (string.IsNullOrWhiteSpace(txtMobile.Text)) {
+                lblError4.Text = "请输入联系电话";
+                lblError4.Focus();
+                lblError4.Visible = true;
+                return false;
+            }
+            lblError4.Visible = false;
             return true;
         }
         /// <summary>
@@ -269,6 +285,30 @@ namespace FMSBackground
             pnlAction.Enabled = false;
 
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            gbDeatil.Enabled = false;
+            pnlAction.Enabled = true;
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        private void tvUser_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                TreeNode tn = tvUser.GetNodeAt(e.X, e.Y);
+                if (tn != null)
+                {
+                    tvUser.SelectedNode = tn;
+                }
+            }
+        }
+
         /// <summary>
         /// 取消操作
         /// </summary>
