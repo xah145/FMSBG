@@ -49,7 +49,7 @@ namespace FMSBackground
         private void menu_Help_About_Click(object sender, EventArgs e)
         {
             FrmAbout u = new FrmAbout();
-            u.Show();
+            u.ShowDialog();
         }
     }
 }

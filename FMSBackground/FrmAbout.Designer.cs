@@ -43,7 +43,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 29);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(300, 500);
             this.pictureBox1.TabIndex = 0;
@@ -51,33 +51,36 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnSure);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(356, 29);
+            this.panel1.Location = new System.Drawing.Point(336, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(388, 507);
+            this.panel1.Size = new System.Drawing.Size(299, 507);
             this.panel1.TabIndex = 1;
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("新宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox1.Location = new System.Drawing.Point(20, 215);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(347, 270);
+            this.textBox1.Size = new System.Drawing.Size(264, 225);
             this.textBox1.TabIndex = 5;
+            this.textBox1.Text = "权限管理系统，管理系统的用户、部门机构、角色、功能及权限分配的系统。";
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(17, 163);
+            this.label5.Location = new System.Drawing.Point(15, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(259, 49);
             this.label5.TabIndex = 4;
-            this.label5.Text = "湘潭熊大大集团";
+            this.label5.Text = "熊大大集团";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
@@ -111,7 +114,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(15, 21);
+            this.label1.Location = new System.Drawing.Point(15, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 31);
             this.label1.TabIndex = 0;
@@ -120,8 +123,8 @@
             // 
             // btnSure
             // 
-            this.btnSure.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSure.Location = new System.Drawing.Point(648, 575);
+            this.btnSure.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSure.Location = new System.Drawing.Point(209, 456);
             this.btnSure.Name = "btnSure";
             this.btnSure.Size = new System.Drawing.Size(75, 31);
             this.btnSure.TabIndex = 2;
@@ -133,13 +136,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(887, 635);
-            this.Controls.Add(this.btnSure);
+            this.ClientSize = new System.Drawing.Size(647, 532);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmAbout";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

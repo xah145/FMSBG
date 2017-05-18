@@ -41,9 +41,7 @@ namespace FMSBackground
         private void FrmUser_Load(object sender, EventArgs e)
         {
             InitUserTree();//初始化用户树
-            ///InitDepTree(); //初始化部下拉框
-            ///InitPosTree(); //初始化岗位下拉框
-            //InitDepartmentList();//初始化部门列表 
+            
         }
 
 
@@ -201,6 +199,7 @@ namespace FMSBackground
                 lblError4.Visible = true;
                 return false;
             }
+           
             lblError4.Visible = false;
             return true;
         }
@@ -240,12 +239,12 @@ namespace FMSBackground
         /// <param name="e"></param>
         private void authBtnAdd_Click(object sender, Control.AuthEventArgs e)
         {
-
-            _badd = true;
-            ResetUserDetail();
-            gbDeatil.Enabled = true;
-            tvUser.Enabled = true;
-            pnlAction.Enabled = false;
+            this.men_Add_Click(null,null);
+            //_badd = true;
+            //ResetUserDetail();
+            //gbDeatil.Enabled = true;
+            //tvUser.Enabled = true;
+            //pnlAction.Enabled = false;
         }
         /// <summary>
         /// 删除
@@ -254,25 +253,25 @@ namespace FMSBackground
         /// <param name="e"></param>
         private void authBtnDelete_Click(object sender, Control.AuthEventArgs e)
         {
+            this.men_Delete_Click(null,null);
+            //if (!e.OK)
+            //{
 
-            if (!e.OK)
-            {
+            //}
+            //if (_selectedNode == null) return;
+            //User u = _selectedNode.Tag as User;
+            //if (u == null) return;
+            //bool ok = _userLogic.DeleteUser(u.UserID);
+            //if (ok)
+            //{
+            //    tvUser.Nodes.Remove(_selectedNode);
+            //    MessageBox.Show("删除成功");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("删除失败");
 
-            }
-            if (_selectedNode == null) return;
-            User u = _selectedNode.Tag as User;
-            if (u == null) return;
-            bool ok = _userLogic.DeleteUser(u.UserID);
-            if (ok)
-            {
-                tvUser.Nodes.Remove(_selectedNode);
-                MessageBox.Show("删除成功");
-            }
-            else
-            {
-                MessageBox.Show("删除失败");
-
-            }
+            //}
         }
         /// <summary>
         /// 编辑
@@ -281,8 +280,9 @@ namespace FMSBackground
         /// <param name="e"></param>
         private void authBtnEdit_Click(object sender, Control.AuthEventArgs e)
         {
-            gbDeatil.Enabled = true;
-            pnlAction.Enabled = false;
+            this.men_Enit_Click(null,null);
+            //gbDeatil.Enabled = true;
+            //pnlAction.Enabled = false;
 
         }
 
@@ -292,10 +292,7 @@ namespace FMSBackground
             pnlAction.Enabled = true;
         }
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-            e.Cancel = true;
-        }
+       
 
         private void tvUser_MouseClick(object sender, MouseEventArgs e)
         {
@@ -309,12 +306,50 @@ namespace FMSBackground
             }
         }
 
-        /// <summary>
-        /// 取消操作
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        private void men_Delete_Click(object sender, EventArgs e)
+        {
+            //if (!e.OK)
+            //{
 
+            //}
+            if (_selectedNode == null) return;
+            User u = _selectedNode.Tag as User;
+            if (u == null) return;
+            bool ok = _userLogic.DeleteUser(u.UserID);
+            if (ok)
+            {
+                tvUser.Nodes.Remove(_selectedNode);
+               
+                MessageBox.Show("删除成功");
+            }
+            else
+            {
+                MessageBox.Show("删除失败");
 
+            }
+        }
+
+        private void men_Add_Click(object sender, EventArgs e)
+        {
+            _badd = true;
+            ResetUserDetail();
+            gbDeatil.Enabled = true;
+            tvUser.Enabled = true;
+            pnlAction.Enabled = false;
+        }
+
+        private void men_Enit_Click(object sender, EventArgs e)
+        {
+            gbDeatil.Enabled = true;
+            pnlAction.Enabled = false;
+        }
+
+        private void 刷新列表UToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //ReloadTree();
+            tvUser.Nodes.Clear();
+            InitUserTree();
+            tvUser.ExpandAll();
+        }
     }
 }

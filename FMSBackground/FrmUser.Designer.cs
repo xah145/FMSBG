@@ -29,8 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUser));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tvUser = new System.Windows.Forms.TreeView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.men_Delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.men_Add = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.men_Enit = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.gbDeatil = new System.Windows.Forms.GroupBox();
             this.lblError4 = new System.Windows.Forms.Label();
             this.lblError3 = new System.Windows.Forms.Label();
@@ -54,22 +61,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lstDepPos = new System.Windows.Forms.ListBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pnlAction = new System.Windows.Forms.Panel();
             this.authBtnEdit = new FMSBackground.Control.AuthButton();
             this.authBtnAdd = new FMSBackground.Control.AuthButton();
             this.authBtnDelete = new FMSBackground.Control.AuthButton();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.删除DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.添加AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刷新列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.刷新列表UToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.gbDeatil.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.pnlAction.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -91,14 +92,62 @@
             this.tvUser.ContextMenuStrip = this.contextMenuStrip1;
             this.tvUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvUser.HideSelection = false;
+            this.tvUser.ImageIndex = 0;
+            this.tvUser.ImageList = this.imageList1;
+            this.tvUser.LineColor = System.Drawing.Color.Blue;
             this.tvUser.Location = new System.Drawing.Point(4, 22);
             this.tvUser.Margin = new System.Windows.Forms.Padding(4);
             this.tvUser.Name = "tvUser";
+            this.tvUser.SelectedImageIndex = 0;
             this.tvUser.ShowNodeToolTips = true;
             this.tvUser.Size = new System.Drawing.Size(317, 665);
             this.tvUser.TabIndex = 0;
             this.tvUser.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvUser_NodeMouseClick);
             this.tvUser.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tvUser_MouseClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.men_Delete,
+            this.men_Add,
+            this.toolStripMenuItem1,
+            this.men_Enit,
+            this.刷新列表UToolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 142);
+            // 
+            // men_Delete
+            // 
+            this.men_Delete.Name = "men_Delete";
+            this.men_Delete.Size = new System.Drawing.Size(181, 26);
+            this.men_Delete.Text = "删除(&D)";
+            this.men_Delete.Click += new System.EventHandler(this.men_Delete_Click);
+            // 
+            // men_Add
+            // 
+            this.men_Add.Name = "men_Add";
+            this.men_Add.Size = new System.Drawing.Size(181, 26);
+            this.men_Add.Text = "添加(&A)";
+            this.men_Add.Click += new System.EventHandler(this.men_Add_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(178, 6);
+            // 
+            // men_Enit
+            // 
+            this.men_Enit.Name = "men_Enit";
+            this.men_Enit.Size = new System.Drawing.Size(181, 26);
+            this.men_Enit.Text = "编辑(&E)";
+            this.men_Enit.Click += new System.EventHandler(this.men_Enit_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Black;
+            this.imageList1.Images.SetKeyName(0, "small_user.bmp");
             // 
             // gbDeatil
             // 
@@ -373,12 +422,6 @@
             this.lstDepPos.Size = new System.Drawing.Size(268, 651);
             this.lstDepPos.TabIndex = 0;
             // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
             // pnlAction
             // 
             this.pnlAction.Controls.Add(this.authBtnEdit);
@@ -422,47 +465,12 @@
             this.authBtnDelete.UseVisualStyleBackColor = true;
             this.authBtnDelete.Click += new FMSBackground.Control.AuthEventHandler(this.authBtnDelete_Click);
             // 
-            // contextMenuStrip1
+            // 刷新列表UToolStripMenuItem1
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.删除DToolStripMenuItem,
-            this.添加AToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.编辑ToolStripMenuItem,
-            this.刷新列表ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(166, 114);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
-            // 
-            // 删除DToolStripMenuItem
-            // 
-            this.删除DToolStripMenuItem.Name = "删除DToolStripMenuItem";
-            this.删除DToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
-            this.删除DToolStripMenuItem.Text = "删除(D)";
-            // 
-            // 添加AToolStripMenuItem
-            // 
-            this.添加AToolStripMenuItem.Name = "添加AToolStripMenuItem";
-            this.添加AToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
-            this.添加AToolStripMenuItem.Text = "添加(A)";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(162, 6);
-            // 
-            // 编辑ToolStripMenuItem
-            // 
-            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
-            this.编辑ToolStripMenuItem.Text = "编辑(E)";
-            // 
-            // 刷新列表ToolStripMenuItem
-            // 
-            this.刷新列表ToolStripMenuItem.Name = "刷新列表ToolStripMenuItem";
-            this.刷新列表ToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
-            this.刷新列表ToolStripMenuItem.Text = "刷新列表(U)";
+            this.刷新列表UToolStripMenuItem1.Name = "刷新列表UToolStripMenuItem1";
+            this.刷新列表UToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
+            this.刷新列表UToolStripMenuItem1.Text = "刷新列表(&U)";
+            this.刷新列表UToolStripMenuItem1.Click += new System.EventHandler(this.刷新列表UToolStripMenuItem1_Click);
             // 
             // FrmUser
             // 
@@ -478,11 +486,11 @@
             this.Text = " 用户管理";
             this.Load += new System.EventHandler(this.FrmUser_Load);
             this.groupBox1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.gbDeatil.ResumeLayout(false);
             this.gbDeatil.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.pnlAction.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -519,10 +527,10 @@
         private System.Windows.Forms.Label lblError2;
         private System.Windows.Forms.Label lblError1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 删除DToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 添加AToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem men_Delete;
+        private System.Windows.Forms.ToolStripMenuItem men_Add;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 编辑ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 刷新列表ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem men_Enit;
+        private System.Windows.Forms.ToolStripMenuItem 刷新列表UToolStripMenuItem1;
     }
 }
